@@ -11,4 +11,9 @@ class TrainController extends Controller
         $trains = Train::all();
         return view('trains.index', ['trains' => $trains]);
     }
+
+    public function show($id){
+        $singleTrain = Train::findOrFail($id);
+        return view('trains.show', ['singleTrain' => $singleTrain]);
+    }
 }
